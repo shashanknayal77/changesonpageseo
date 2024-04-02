@@ -2,8 +2,7 @@ import streamlit as st
 import requests
 from bs4 import BeautifulSoup
 import re
-from urllib.parse import urlparse, urljoin
-import trafilatura
+from urllib.parse import urlparse
 import matplotlib.pyplot as plt
 
 st.title("On-Page SEO Analysis")
@@ -299,14 +298,14 @@ if url!="":
         def check_robots_txt(url):
             robots_url = url + '/robots.txt'
             try:
-                robots_txt = trafilatura.fetch_url(robots_url)
-                if robots_txt:
+                response = requests.get(robots_url)
+                if response.status_code == 200:
                     col1, col2 = st.columns([1, 1])
                     with col1:
                         st.subheader("**Robots.txt**")
                     with col2:
                         st.write(f"{robots_url}")
-                elif url!="":
+                else:
                     col1, col2 = st.columns([1, 1])
                     with col1:
                         st.subheader("**Robots.txt**")
@@ -319,14 +318,14 @@ if url!="":
         def check_sitemap(url):
             sitemap_url = url + '/sitemap.xml'
             try:
-                sitemap = trafilatura.fetch_url(sitemap_url)
-                if sitemap:
+                response = requests.get(sitemap_url)
+                if response.status_code == 200:
                     col1, col2 = st.columns([1, 1])
                     with col1:
                         st.subheader("**Sitemap.xml**")
                     with col2:
                         st.write(f"{sitemap_url}")
-                elif url!="":
+                else:
                     col1, col2 = st.columns([1, 1])
                     with col1:
                         st.subheader("**Sitemap.xml**")
