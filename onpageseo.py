@@ -1,9 +1,9 @@
 import streamlit as st
 import requests
 from bs4 import BeautifulSoup
-import trafilatura
 import re
 from urllib.parse import urlparse, urljoin
+import trafilatura
 import matplotlib.pyplot as plt
 
 st.title("On-Page SEO Analysis")
