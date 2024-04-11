@@ -183,44 +183,44 @@ if url!="":
                 st.subheader("**Meta Robots**")
             with col2:
                 st.write(f"Not Specified")
-        def check_gtm_presence(url):
-            response = requests.get(url)
-            if response.status_code == 200:
-                gtm_snippet_present = 'https://www.googletagmanager.com/gtm.js' in response.text
-                return gtm_snippet_present
-            return False
+        # def check_gtm_presence(url):
+        #     response = requests.get(url)
+        #     if response.status_code == 200:
+        #         gtm_snippet_present = 'https://www.googletagmanager.com/gtm.js' in response.text
+        #         return gtm_snippet_present
+        #     return False
 
-        col1, col2 = st.columns(2)
-        if check_gtm_presence(url):
-            with col1:
-                st.subheader("Google Tag Manager")
-            with col2:    
-                st.markdown(
-                    """
-                    <div style="display: flex; align-items: center;">
-                        <div style="width: 20px; height: 20px; border-radius: 50%; background-color: white; border: 1px solid black; margin-right: 8px;">
-                            <div style="width: 10px; height: 10px; border-radius: 50%; background-color: green; margin: 4px;"></div>
-                        </div>
-                        <div>Present</div>
-                    </div>
-                    """,
-                    unsafe_allow_html=True
-                )
-        else:
-            with col1:
-                st.subheader("Google Tag Manager")
-            with col2:    
-                st.markdown(
-                    """
-                    <div style="display: flex; align-items: center;">
-                        <div style="width: 20px; height: 20px; border-radius: 50%; background-color: white; border: 1px solid black; margin-right: 8px;">
-                            <div style="width: 10px; height: 10px; border-radius: 50%; background-color: red; margin: 4px;"></div>
-                        </div>
-                        <div>Not Present</div>
-                    </div>
-                    """,
-                    unsafe_allow_html=True
-                )      
+        # col1, col2 = st.columns(2)
+        # if check_gtm_presence(url):
+        #     with col1:
+        #         st.subheader("Google Tag Manager")
+        #     with col2:    
+        #         st.markdown(
+        #             """
+        #             <div style="display: flex; align-items: center;">
+        #                 <div style="width: 20px; height: 20px; border-radius: 50%; background-color: white; border: 1px solid black; margin-right: 8px;">
+        #                     <div style="width: 10px; height: 10px; border-radius: 50%; background-color: green; margin: 4px;"></div>
+        #                 </div>
+        #                 <div>Present</div>
+        #             </div>
+        #             """,
+        #             unsafe_allow_html=True
+        #         )
+        # else:
+        #     with col1:
+        #         st.subheader("Google Tag Manager")
+        #     with col2:    
+        #         st.markdown(
+        #             """
+        #             <div style="display: flex; align-items: center;">
+        #                 <div style="width: 20px; height: 20px; border-radius: 50%; background-color: white; border: 1px solid black; margin-right: 8px;">
+        #                     <div style="width: 10px; height: 10px; border-radius: 50%; background-color: red; margin: 4px;"></div>
+        #                 </div>
+        #                 <div>Not Present</div>
+        #             </div>
+        #             """,
+        #             unsafe_allow_html=True
+        #         )      
         st.subheader("Header Tags Analysis")
         def check(url,tag):
             try:
